@@ -1,0 +1,243 @@
+.connection-graph {
+  --graph-ink: #293a30;
+  --graph-muted: #788176;
+  background: #f6f7ef;
+  border: 1px solid #e0e5d7;
+  border-radius: 20px;
+  color: var(--graph-ink);
+  overflow: hidden;
+}
+
+.connection-graph__heading {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  justify-content: space-between;
+  padding: 26px 28px 0;
+}
+
+.connection-graph__eyebrow {
+  color: #7b896d;
+  font-size: 9px;
+  font-weight: 750;
+  letter-spacing: 0.15em;
+}
+
+.connection-graph__title {
+  color: var(--graph-ink);
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 1.3;
+  margin: 6px 0 0;
+  overflow-wrap: anywhere;
+}
+
+.connection-graph__stats {
+  color: var(--graph-muted);
+  font-size: 10px;
+  margin: 9px 0 0;
+}
+
+.connection-graph__canvas {
+  position: relative;
+}
+
+.connection-graph__svg {
+  cursor: grab;
+  display: block;
+  height: auto;
+  max-height: 620px;
+  min-height: 290px;
+  touch-action: none;
+  width: 100%;
+}
+
+.connection-graph__svg.is-panning {
+  cursor: grabbing;
+}
+
+.connection-graph__node {
+  cursor: pointer;
+  outline: none;
+}
+
+.connection-graph__disc {
+  fill: #e6e2ef;
+  stroke: #f6f7ef;
+  transition: stroke 120ms ease, stroke-width 120ms ease;
+}
+
+.connection-graph__node--owner .connection-graph__disc {
+  fill: #293e32;
+}
+
+.connection-graph__node--friend .connection-graph__disc {
+  fill: #b8d2b0;
+}
+
+.connection-graph__node--nonreciprocal .connection-graph__disc {
+  fill: #efd1b9;
+}
+
+.connection-graph__node:hover .connection-graph__disc,
+.connection-graph__node:focus-visible .connection-graph__disc {
+  stroke: #506644;
+  stroke-width: 3;
+}
+
+.connection-graph__initials {
+  fill: #616270;
+  font-family: inherit;
+  font-weight: 600;
+  pointer-events: none;
+}
+
+.connection-graph__node--owner .connection-graph__initials {
+  fill: #f7f7eb;
+  font-weight: 450;
+}
+
+.connection-graph__node--friend .connection-graph__initials {
+  fill: #405c3d;
+}
+
+.connection-graph__node--nonreciprocal .connection-graph__initials {
+  fill: #996141;
+}
+
+.connection-graph__label {
+  fill: #66705f;
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 500;
+  paint-order: stroke;
+  pointer-events: none;
+  stroke: #f6f7ef;
+  stroke-linejoin: round;
+  stroke-width: 4px;
+}
+
+.connection-graph__node--center .connection-graph__label {
+  fill: #34482f;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.connection-graph__edge {
+  outline: none;
+}
+
+.connection-graph__edge:hover path:not(:last-child),
+.connection-graph__edge:focus-visible path:not(:last-child) {
+  stroke: #4b6656;
+  stroke-width: 2.5;
+}
+
+.connection-graph__controls {
+  bottom: 15px;
+  display: flex;
+  gap: 3px;
+  position: absolute;
+  right: 22px;
+}
+
+.connection-graph__control {
+  align-items: center;
+  background: #ffffffeb;
+  border: 1px solid #e1e5d9;
+  border-radius: 7px;
+  color: #59664f;
+  cursor: pointer;
+  display: flex;
+  font-family: inherit;
+  font-size: 19px;
+  height: 32px;
+  justify-content: center;
+  padding: 0;
+  width: 32px;
+}
+
+.connection-graph__control:hover {
+  background: #e8edde;
+}
+
+.connection-graph__control:focus-visible,
+.connection-graph__svg:focus-visible {
+  outline: 2px solid #5b7450;
+  outline-offset: -2px;
+}
+
+.connection-graph__tooltip {
+  background: #293e32f2;
+  border-radius: 9px;
+  bottom: 58px;
+  color: #fffef5;
+  font-size: 11px;
+  left: 22px;
+  line-height: 1.5;
+  max-width: 390px;
+  overflow-wrap: anywhere;
+  padding: 10px 12px;
+  pointer-events: none;
+  position: absolute;
+  right: 22px;
+  z-index: 1;
+}
+
+.connection-graph__tooltip[hidden] {
+  display: none;
+}
+
+.connection-graph__footer {
+  border-top: 1px solid #e6e9df;
+  padding: 17px 26px 10px;
+}
+
+.connection-graph__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+}
+
+.connection-graph__legend-item {
+  align-items: center;
+  color: #646f5b;
+  display: inline-flex;
+  font-size: 10px;
+  gap: 6px;
+}
+
+.connection-graph__swatch {
+  background: #e6e2ef;
+  border-radius: 50%;
+  display: inline-block;
+  height: 8px;
+  width: 8px;
+}
+
+.connection-graph__swatch--owner { background: #293e32; }
+.connection-graph__swatch--friend { background: #a8c59e; }
+.connection-graph__swatch--nonreciprocal { background: #e1b997; }
+
+.connection-graph__hint,
+.connection-graph__note {
+  color: #7d8576;
+  font-size: 10px;
+  line-height: 1.65;
+  margin: 12px 0 0;
+}
+
+.connection-graph__note {
+  margin: 0;
+  padding: 0 26px 21px;
+}
+
+@media (max-width: 520px) {
+  .connection-graph__heading { padding: 20px 18px 0; }
+  .connection-graph__stats { margin-top: 0; }
+  .connection-graph__footer { padding: 14px 18px 10px; }
+  .connection-graph__note { padding: 0 18px 18px; }
+  .connection-graph__title { font-size: 19px; }
+}

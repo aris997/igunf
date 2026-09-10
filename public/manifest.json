@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "IgUnf — Your circle",
+  "version": "0.1.0",
+  "description": "Review Instagram connections with a private local graph and a user-approved cleanup queue.",
+  "minimum_chrome_version": "120",
+  "permissions": ["activeTab", "scripting", "sidePanel", "alarms", "storage"],
+  "optional_host_permissions": ["https://www.instagram.com/*"],
+  "background": { "service_worker": "background.js", "type": "module" },
+  "action": { "default_popup": "popup.html", "default_title": "IgUnf — Your circle" },
+  "side_panel": { "default_path": "app.html" },
+  "content_security_policy": { "extension_pages": "script-src 'self'; object-src 'none'; connect-src 'none'; base-uri 'none';" }
+}

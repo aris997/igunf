@@ -1,0 +1,7 @@
+{
+  "relationships_following": [
+    {"title":"sofia.example","string_list_data":[{"href":"https://www.instagram.com/_u/sofia.example","timestamp":1700000000}]},
+    {"title":"alice.example","string_list_data":[{"href":"https://www.instagram.com/_u/alice.example","timestamp":1700000000}]},
+    {"title":"studio.example","string_list_data":[{"href":"https://www.instagram.com/_u/studio.example","timestamp":1700000000}]}
+  ]
+}
